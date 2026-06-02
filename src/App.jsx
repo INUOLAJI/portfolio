@@ -3,7 +3,7 @@ import Home from './Pages/Home';
 import About from './Pages/About'
 import Contact from './Pages/Contact'
 import Project from './Pages/Project'
-import ProjectDetail from './pages/ProjectDetail';
+import ProjectDetail from './Pages/ProjectDetail';
 // import Projects from './pages/Projects';
 
 function App() {
