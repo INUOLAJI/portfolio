@@ -3,7 +3,7 @@
 Welcome to the repository for my personal portfolio website! Built with a modern, responsive user interface using React and React-Bootstrap, this platform showcases my professional journey, technical skillset, and full-stack web applications.
 
 👤 **Developer:** Bello Inuolaji  
-🌐 **Live Link:** *[Insert your deployed portfolio link here, e.g., Vercel / Netlify]*
+🌐 **Live Link:** *[[Insert your deployed portfolio link here, e.g., Vercel / Netlify](https://portfolio-one-sigma-61.vercel.app/)]*
 
 ---
 
@@ -44,5 +44,5 @@ To run this portfolio project locally on your machine, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/INUOLAJI/portfolio-repo-name.git](https://github.com/INUOLAJI/portfolio-repo-name.git)
+   git clone [https://github.com/INUOLAJI/portfolio.git](https://github.com/INUOLAJI/portfolio.git)
    cd portfolio-repo-name
