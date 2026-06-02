@@ -3,7 +3,7 @@
 Welcome to the repository for my personal portfolio website! Built with a modern, responsive user interface using React and React-Bootstrap, this platform showcases my professional journey, technical skillset, and full-stack web applications.
 
 👤 **Developer:** Bello Inuolaji  
-🌐 **Live Link:** *[[Insert your deployed portfolio link here, e.g., Vercel / Netlify](https://portfolio-one-sigma-61.vercel.app/)]*
+🌐 **Live Link:** *[[https://portfolio-one-sigma-61.vercel.app/]]*
 
 ---
 
