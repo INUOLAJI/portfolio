@@ -5,7 +5,7 @@ export const projectsData = [
     title: "E-Commerce Admin Dashboard",
     challenge: "Store owners were struggling to track inventory across multiple platforms, leading to overselling and manual data errors.",
     solution: "I developed a centralized hub using Node.js and React that syncs inventory in real-time. I implemented a robust search algorithm to help staff find products in under 2 seconds.",
-    tech: ["React", "Node.js", "PostgreeSQL"],
+    tech: ["React", "Node.js", "PostgreeSQL", "Socket.io"],
     impact: "Reduced inventory errors by 40% and saved managers 10 hours of manual entry per week.",
     image: marvelousShot
   },

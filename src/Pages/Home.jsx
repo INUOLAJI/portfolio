@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Nav, Navbar, Card, ProgressBar } from 'react-bootstrap';
+import { LuSettings, LuSmartphone } from 'react-icons/lu';
+import { FaChartBar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import myPhoto from '../assets/WhatsApp Image 2026-06-02 at 9.30.34 PM.jpeg'; 
 
@@ -139,7 +141,9 @@ const Home = () => {
           <Col xs={12} md={4}>
             <Card className="h-100 border-secondary border-opacity-25 feature-card p-3 text-white">
               <Card.Body>
-                <div className="text-info fs-3 mb-3">⚙️</div>
+                <div className="text-info fs-3 mb-3 text-glow">
+                 <LuSettings />
+                </div>
                 <Card.Title className="fw-bold text-light">Robust Backends</Card.Title>
                 <Card.Text className="text-secondary small">
                   Building secure RESTful APIs, handling asynchronous architectures, and automating complex workflows using Node.js and Python.
@@ -150,7 +154,9 @@ const Home = () => {
           <Col xs={12} md={4}>
             <Card className="h-100 border-secondary border-opacity-25 feature-card p-3 text-white">
               <Card.Body>
-                <div className="text-info fs-3 mb-3">📱</div>
+                <div className="text-info fs-3 mb-3 text-glow">
+                 <LuSmartphone />
+                </div>
                 <Card.Title className="fw-bold text-light">Dynamic Frontends</Card.Title>
                 <Card.Text className="text-secondary small">
                   Crafting fast, intuitive, and fully responsive user interfaces using React, JavaScript, and Bootstrap that prioritize smooth user journeys.
@@ -161,7 +167,9 @@ const Home = () => {
           <Col xs={12} md={4}>
             <Card className="h-100 border-secondary border-opacity-25 feature-card p-3 text-white">
               <Card.Body>
-                <div className="text-info fs-3 mb-3">📊</div>
+                <div className="text-info fs-3 mb-3 text-glow">
+                 <FaChartBar />
+                </div>
                 <Card.Title className="fw-bold text-light">Database Management</Card.Title>
                 <Card.Text className="text-secondary small">
                   Designing optimized schemas and query layouts for both relational and non-relational storage layers like PostgreSQL and MongoDB.
@@ -271,7 +279,7 @@ const Home = () => {
               <p className="text-secondary small mb-0">Writing responsive frontend UI components and performance-optimized backend routes backed by scalable state management paradigms.</p>
             </Col>
 
-            <Col xs={12} md={4} className="process-step ps-4" style={{borderLeft: 'none'}}>
+            <Col xs={12} md={4} className="process-step ps-4" >
               <div className="process-badge">3</div>
               <h5 className="text-light fw-bold">Deploy & Monitor</h5>
               <p className="text-secondary small mb-0">Launching applications onto server instances with rigorous performance configurations, solid testing, and continuous deployment optimizations.</p>
