@@ -1,12 +1,13 @@
+import marvelousShot from '../assets/marvelous_shot.png';
 export const projectsData = [
   {
     id: 1,
     title: "E-Commerce Admin Dashboard",
     challenge: "Store owners were struggling to track inventory across multiple platforms, leading to overselling and manual data errors.",
     solution: "I developed a centralized hub using Node.js and React that syncs inventory in real-time. I implemented a robust search algorithm to help staff find products in under 2 seconds.",
-    tech: ["React", "Node.js", "MongoDB", "Socket.io"],
+    tech: ["React", "Node.js", "PostgreeSQL"],
     impact: "Reduced inventory errors by 40% and saved managers 10 hours of manual entry per week.",
-    image: "/images/ecommerce-preview.jpg"
+    image: marvelousShot
   },
   {
     id: 2,

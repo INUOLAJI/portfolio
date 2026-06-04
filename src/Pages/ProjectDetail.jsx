@@ -43,15 +43,14 @@ const ProjectDetail = () => {
 
         <Row className="gy-5">
           {/* Left Column: Visual Showcase Placeholder */}
-          <Col lg={7}>
-            <div 
-              className="rounded-3 shadow-lg d-flex flex-column align-items-center justify-content-center border border-secondary gradient-mesh" 
-              style={{ height: '400px', borderStyle: 'dashed' }}
-            >
-              <h4 className="text-secondary mb-1">Preview Image</h4>
-              <span className="text-info font-monospace small">&lt;{project.title} /&gt;</span>
-            </div>
-          </Col>
+         <Col lg={7}>
+          <img
+          src={project.image}
+          alt={project.title}
+          className="rounded-3 shadow-lg w-100"
+          style={{ height: '400px', objectFit: 'cover' }}
+         />
+</Col>
 
           {/* Right Column: Case Study Data */}
           <Col lg={5}>

@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import myPhoto from '../assets/WhatsApp Image 2026-06-02 at 9.30.34 PM.jpeg'; 
 
 const Home = () => {
-  const toolkit = [
-    { name: "React", rating: 90 },
-    { name: "Node.js", rating: 85 },
-    { name: "JavaScript (ES6+)", rating: 90 },
-    { name: "Bootstrap", rating: 95 },
-    { name: "MongoDB", rating: 80 },
-    { name: "PostgreSQL", rating: 90 },
-    { name: "Git", rating: 85 },
-    { name: "Python", rating: 80 },
-    { name: "PHP", rating: 75 },
-    {name : "Django", rating: 85}
-  ];
+  // const toolkit = [
+  //   { name: "React", rating: 90 },
+  //   { name: "Node.js", rating: 85 },
+  //   { name: "JavaScript (ES6+)", rating: 90 },
+  //   { name: "Bootstrap", rating: 95 },
+  //   { name: "MongoDB", rating: 80 },
+  //   { name: "PostgreSQL", rating: 90 },
+  //   { name: "Git", rating: 85 },
+  //   { name: "Python", rating: 80 },
+  //   { name: "PHP", rating: 75 },
+  //   {name : "Django", rating: 85}
+  // ];
 
   return (
     <div className="min-vh-100 bg-dark text-white page-bg pt-5">
@@ -173,7 +173,7 @@ const Home = () => {
       </Container>
 
       {/* Percentage Rating Toolkit Layout */}
-      <div className="bg-secondary bg-opacity-10 py-5 border-y border-secondary border-opacity-10">
+      {/* <div className="bg-secondary bg-opacity-10 py-5 border-y border-secondary border-opacity-10">
         <Container>
           <Row className="gy-4">
             <Col lg={3} className="text-center text-lg-start">
@@ -195,7 +195,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div> */}
 
       {/* NEW SECTION 3: Featured Work Spotlight */}
       <Container className="py-5 my-5">
