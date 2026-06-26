@@ -1,27 +1,23 @@
-<<<<<<< HEAD
+
 import marvelousShot from '../assets/marvelous_shot.png';
-=======
+
 // src/data/projectdata.js
 import marvelousShot from '../assets/marvelous_shot.png';
 import urlsnaplink from '../assets/urlsnaplink.png';
 import blogsapi from '../assets/blogsapi.png';
->>>>>>> 4ff6664 (Initial commit)
 export const projectsData = [
   {
     id: 1,
     title: "E-Commerce Admin Dashboard",
     challenge: "Store owners were struggling to track inventory across multiple platforms, leading to overselling and manual data errors.",
     solution: "I developed a centralized hub using Node.js and React that syncs inventory in real-time. I implemented a robust search algorithm to help staff find products in under 2 seconds.",
-<<<<<<< HEAD
     tech: ["React", "Node.js", "PostgreeSQL", "Socket.io"],
     impact: "Reduced inventory errors by 40% and saved managers 10 hours of manual entry per week.",
-    image: marvelousShot
-=======
+    image: marvelousShot,
     tech: ["React", "Node.js", "PostgreSQL", "Socket.io"],
     impact: "Reduced inventory errors by 40% and saved managers 10 hours of manual entry per week.",
     image: marvelousShot,
     github: "https://github.com/INUOLAJI/frontend-ecommerce.git"
->>>>>>> 4ff6664 (Initial commit)
   },
   {
     id: 2,
@@ -30,12 +26,9 @@ export const projectsData = [
     solution: "I built a secure portal using PostgreSQL and Express where clients can self-schedule, upload documents, and pay invoices in one session.",
     tech: ["Express", "PostgreSQL", "React-Bootstrap", "Stripe API"],
     impact: "Increased successful bookings by 25% within the first month of launch.",
-<<<<<<< HEAD
-    image: "/images/portal-preview.jpg"
-=======
+    image: "/images/portal-preview.jpg",
     image: "/images/portal-preview.jpg",
     github: "https://github.com/INUOLAJI/client-portal.git"
->>>>>>> 4ff6664 (Initial commit)
   },
   {
     id: 3,
@@ -44,9 +37,7 @@ export const projectsData = [
     solution: "Using Python for data processing and AWS for hosting, I created an engine that transforms CSV logs into interactive heatmaps and conversion funnels.",
     tech: ["Python", "AWS", "Chart.js", "React"],
     impact: "Helped the marketing team reallocate $5,000 in monthly ad spend to high-performing segments.",
-<<<<<<< HEAD
-    image: "/images/analytics-preview.jpg"
-=======
+    image: "/images/analytics-preview.jpg",
     image: "/images/analytics-preview.jpg",
     github: "https://github.com/INUOLAJI/analytics-engine.git"
   },
@@ -69,6 +60,5 @@ export const projectsData = [
     impact: "Built full CRUD operations featuring input validation middleware that eliminates database injection risks and ensures data integrity.",
     image: blogsapi,
     github: "https://github.com/INUOLAJI/Blogs_API.git"
->>>>>>> 4ff6664 (Initial commit)
   }
 ];

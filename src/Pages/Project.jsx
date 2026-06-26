@@ -1,60 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Badge, Nav, Navbar, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
+import { projectsData } from '../data/projectsData';
 
 // Import your project mockups or screenshots here:
 // import ecommerceImg from '../assets/ecommerce-dashboard.png';
 // import portalImg from '../assets/client-portal.png';
-// import analyticsImg from '../assets/analytics-engine.png';
 
 const Projects = () => {
-  const projectList = [
-    {
-      id: 1,
-      title: "E-Commerce Admin Dashboard",
-      category: "fullstack",
-      scope: "Enterprise Build",
-      metrics: "12+ API Endpoints",
-      description: "A full-stack tool that helps shop owners manage inventory and track sales in real-time.",
-      tech: ["Node.js", "React", "PostgreSQL"],
-      liveLink: "https://marvelous-store-front.vercel.app",
-      github: "https://github.com/INUOLAJI/frontend-ecommerce.git",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" // Replace with your imported file variable (e.g., ecommerceImg)
-    },
-    {
-      id: 2,
-      title: "Client Connect Portal",
-      category: "backend",
-      scope: "Internal Tool",
-      metrics: "8 Database Tables",
-      description: "Streamlined business operations by allowing clients to book appointments and sign documents digitally.",
-      tech: ["Express", "PostgreSQL", "Bootstrap"],
-      liveLink: "#",
-      github: "https://github.com",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" // Replace with your imported file variable
-    },
-    {
-      id: 3,
-      title: "Analytics Engine",
-      category: "data",
-      scope: "Microservice",
-      metrics: "Sub-second Sync",
-      description: "Automated data collection to help brands reach their ideal audience through targeted insights.",
-      tech: ["Python", "React", "AWS"],
-      liveLink: "#",
-      github: "https://github.com",
-      image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=500&q=80" // Replace with your imported file variable
-    }
-  ];
-=======
-// Import your centralized data structure 
-import { projectsData } from '../data/projectsData';
-
-const Projects = () => {
-  // Map internal list fields to dynamically read completely unique values for each card
   const projectList = projectsData.map(project => {
-    // Dynamically assign organizational categories based on project ID
     let category = "fullstack";
     let scope = "Enterprise Build";
     let metrics = "Real-time Sync";
@@ -77,7 +31,7 @@ const Projects = () => {
       category = "backend";
       scope = "Routing Engine";
       metrics = "301 Redirects";
-      liveLink = "https://url-shortenener.onrender.com"
+      liveLink = "https://url-shortenener.onrender.com";
     } else if (project.id === 5) {
       category = "backend";
       scope = "REST Engine";
@@ -90,34 +44,29 @@ const Projects = () => {
       category: category,
       scope: scope,
       metrics: metrics,
-      description: project.solution, 
+      description: project.solution,
       tech: project.tech,
       liveLink: liveLink,
-      github: project.github, // <-- Pulls the unique GitHub URL from projectdata.js
-      image: project.image    // <-- Pulls the unique image asset from projectdata.js
+      github: project.github,
+      image: project.image
     };
   });
->>>>>>> 4ff6664 (Initial commit)
 
-  // Search and Filter States
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Dual-filtering mechanism
   const filteredProjects = projectList.filter(project => {
     const matchesCategory = activeFilter === 'all' || project.category === activeFilter;
-    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          project.tech.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.tech.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
   return (
     <div className="min-vh-100 bg-dark text-white pt-5 page-bg d-flex flex-column justify-content-between">
-      
-<<<<<<< HEAD
+
       {/* Premium System Styles */}
-=======
->>>>>>> 4ff6664 (Initial commit)
       <style>{`
         .hover-lift {
           transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
@@ -147,10 +96,6 @@ const Projects = () => {
           border-color: #0dcaf0 !important;
           box-shadow: 0 0 10px rgba(0, 229, 255, 0.2) !important;
         }
-<<<<<<< HEAD
-        /* Custom premium framing for your project image */
-=======
->>>>>>> 4ff6664 (Initial commit)
         .card-img-wrapper {
           position: relative;
           height: 180px;
@@ -163,10 +108,6 @@ const Projects = () => {
           object-fit: cover;
           transition: transform 0.4s ease;
         }
-<<<<<<< HEAD
-        /* Dark gradient tint to match your dark web framework styling */
-=======
->>>>>>> 4ff6664 (Initial commit)
         .card-img-overlay-mesh {
           position: absolute;
           inset: 0;
@@ -224,32 +165,21 @@ const Projects = () => {
       </Navbar>
 
       <Container className="content-fade-in mt-5 pt-4 flex-grow-1">
-<<<<<<< HEAD
         {/* Header Introduction Block */}
-=======
->>>>>>> 4ff6664 (Initial commit)
         <Row className="mb-5 align-items-end gy-4">
           <Col lg={7}>
             <h2 className="display-4 fw-bold border-bottom border-info pb-3 d-inline-block text-glow">
               Featured Projects
             </h2>
             <p className="text-secondary mt-3 fs-5 mb-0">
-<<<<<<< HEAD
-              Digital solutions built to scale businesses and simplify workflows.
-=======
               Digital solutions built to scale businesses and simplify backend workflows.
->>>>>>> 4ff6664 (Initial commit)
             </p>
           </Col>
-          
+
           <Col lg={5}>
             <InputGroup>
               <Form.Control
-<<<<<<< HEAD
-                placeholder="Search projects or stack (e.g., React)..."
-=======
                 placeholder="Search projects or stack (e.g., PHP, React)..."
->>>>>>> 4ff6664 (Initial commit)
                 aria-label="Search portfolio projects"
                 className="premium-search py-2"
                 value={searchQuery}
@@ -265,11 +195,7 @@ const Projects = () => {
             <div className="d-flex flex-wrap gap-2 justify-content-start align-items-center">
               <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>// ALL ARCHITECTURES</button>
               <button className={`filter-btn ${activeFilter === 'fullstack' ? 'active' : ''}`} onClick={() => setActiveFilter('fullstack')}>FULL-STACK</button>
-<<<<<<< HEAD
-              <button className={`filter-btn ${activeFilter === 'backend' ? 'active' : ''}`} onClick={() => setActiveFilter('backend')}>BACKEND APIs</button>
-=======
               <button className={`filter-btn ${activeFilter === 'backend' ? 'active' : ''}`} onClick={() => setActiveFilter('backend')}>BACKEND APIs & ENGINEs</button>
->>>>>>> 4ff6664 (Initial commit)
               <button className={`filter-btn ${activeFilter === 'data' ? 'active' : ''}`} onClick={() => setActiveFilter('data')}>DATA SYSTEMS</button>
             </div>
           </Col>
@@ -281,15 +207,12 @@ const Projects = () => {
             filteredProjects.map((project) => (
               <Col key={project.id} md={6} lg={4}>
                 <Card className="h-100 bg-secondary bg-opacity-10 border-secondary border-opacity-25 hover-lift shadow-sm overflow-hidden d-flex flex-column">
-                  
-<<<<<<< HEAD
+
                   {/* Dynamic Image Container Layout with Floating Meta Badges */}
-=======
->>>>>>> 4ff6664 (Initial commit)
                   <div className="card-img-wrapper">
                     <img src={project.image} alt={project.title} loading="lazy" />
                     <div className="card-img-overlay-mesh"></div>
-                    
+
                     <div className="card-meta-content">
                       <div className="font-monospace text-muted small">
                         <span className="text-info d-block meta-text fw-bold">{project.scope.toUpperCase()}</span>
@@ -308,7 +231,7 @@ const Projects = () => {
                     <Card.Text className="text-secondary flex-grow-1 small mb-4" style={{ lineHeight: '1.6' }}>
                       {project.description}
                     </Card.Text>
-                    
+
                     <div className="mb-4">
                       {project.tech.map((t) => (
                         <Badge key={t} bg="dark" className="me-2 mb-2 border border-secondary border-opacity-40 fw-normal text-light font-monospace opacity-90 p-2">
@@ -317,19 +240,16 @@ const Projects = () => {
                       ))}
                     </div>
 
-<<<<<<< HEAD
                     {/* Dynamic Action Buttons */}
-=======
->>>>>>> 4ff6664 (Initial commit)
                     <div className="mt-auto">
                       <Row className="gx-2 mb-2">
                         {project.liveLink !== "#" && (
                           <Col>
-                            <Button 
-                              href={project.liveLink} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              variant="info" 
+                            <Button
+                              href={project.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              variant="info"
                               className="w-100 btn-sm fw-bold text-dark"
                             >
                               Live Demo
@@ -337,18 +257,14 @@ const Projects = () => {
                           </Col>
                         )}
                         <Col>
-                          <Button 
-                            href={project.github} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            variant="outline-secondary" 
+                          <Button
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="outline-secondary"
                             className="w-100 btn-sm text-white border-secondary"
                           >
-<<<<<<< HEAD
-                            GitHub
-=======
                             GitHub Source
->>>>>>> 4ff6664 (Initial commit)
                           </Button>
                         </Col>
                       </Row>
@@ -369,10 +285,7 @@ const Projects = () => {
         </Row>
       </Container>
 
-<<<<<<< HEAD
       {/* Let's Connect CTA Strip */}
-=======
->>>>>>> 4ff6664 (Initial commit)
       <div className="bg-secondary bg-opacity-10 py-5 border-t border-secondary border-opacity-10 mt-5 w-100">
         <Container className="text-center py-2">
           <h4 className="fw-bold text-light mb-2">Need a tailored web architecture solution?</h4>
