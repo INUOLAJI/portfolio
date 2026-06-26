@@ -36,6 +36,7 @@ const Projects = () => {
       category = "backend";
       scope = "REST Engine";
       metrics = "JWT Auth Verified";
+      liveLink= "https://blogs-api-w90z.onrender.com/api/schema/swagger/"
     }
 
     return {
