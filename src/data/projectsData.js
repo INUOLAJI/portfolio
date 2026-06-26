@@ -1,6 +1,3 @@
-
-import marvelousShot from '../assets/marvelous_shot.png';
-
 // src/data/projectdata.js
 import marvelousShot from '../assets/marvelous_shot.png';
 import urlsnaplink from '../assets/urlsnaplink.png';
