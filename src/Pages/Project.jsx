@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Badge, Nav, Navbar, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 
 // Import your project mockups or screenshots here:
 // import ecommerceImg from '../assets/ecommerce-dashboard.png';
@@ -46,6 +47,57 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=500&q=80" // Replace with your imported file variable
     }
   ];
+=======
+// Import your centralized data structure 
+import { projectsData } from '../data/projectsData';
+
+const Projects = () => {
+  // Map internal list fields to dynamically read completely unique values for each card
+  const projectList = projectsData.map(project => {
+    // Dynamically assign organizational categories based on project ID
+    let category = "fullstack";
+    let scope = "Enterprise Build";
+    let metrics = "Real-time Sync";
+    let liveLink = "#";
+
+    if (project.id === 1) {
+      category = "fullstack";
+      scope = "Enterprise Build";
+      metrics = "Socket.io Core";
+      liveLink = "https://marvelous-store-front.vercel.app";
+    } else if (project.id === 2) {
+      category = "fullstack";
+      scope = "Client Portal";
+      metrics = "Stripe Secured";
+    } else if (project.id === 3) {
+      category = "data";
+      scope = "Microservice";
+      metrics = "AWS Serverless";
+    } else if (project.id === 4) {
+      category = "backend";
+      scope = "Routing Engine";
+      metrics = "301 Redirects";
+      liveLink = "https://url-shortenener.onrender.com"
+    } else if (project.id === 5) {
+      category = "backend";
+      scope = "REST Engine";
+      metrics = "JWT Auth Verified";
+    }
+
+    return {
+      id: project.id,
+      title: project.title,
+      category: category,
+      scope: scope,
+      metrics: metrics,
+      description: project.solution, 
+      tech: project.tech,
+      liveLink: liveLink,
+      github: project.github, // <-- Pulls the unique GitHub URL from projectdata.js
+      image: project.image    // <-- Pulls the unique image asset from projectdata.js
+    };
+  });
+>>>>>>> 4ff6664 (Initial commit)
 
   // Search and Filter States
   const [activeFilter, setActiveFilter] = useState('all');
@@ -62,7 +114,10 @@ const Projects = () => {
   return (
     <div className="min-vh-100 bg-dark text-white pt-5 page-bg d-flex flex-column justify-content-between">
       
+<<<<<<< HEAD
       {/* Premium System Styles */}
+=======
+>>>>>>> 4ff6664 (Initial commit)
       <style>{`
         .hover-lift {
           transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
@@ -92,7 +147,10 @@ const Projects = () => {
           border-color: #0dcaf0 !important;
           box-shadow: 0 0 10px rgba(0, 229, 255, 0.2) !important;
         }
+<<<<<<< HEAD
         /* Custom premium framing for your project image */
+=======
+>>>>>>> 4ff6664 (Initial commit)
         .card-img-wrapper {
           position: relative;
           height: 180px;
@@ -105,7 +163,10 @@ const Projects = () => {
           object-fit: cover;
           transition: transform 0.4s ease;
         }
+<<<<<<< HEAD
         /* Dark gradient tint to match your dark web framework styling */
+=======
+>>>>>>> 4ff6664 (Initial commit)
         .card-img-overlay-mesh {
           position: absolute;
           inset: 0;
@@ -163,21 +224,32 @@ const Projects = () => {
       </Navbar>
 
       <Container className="content-fade-in mt-5 pt-4 flex-grow-1">
+<<<<<<< HEAD
         {/* Header Introduction Block */}
+=======
+>>>>>>> 4ff6664 (Initial commit)
         <Row className="mb-5 align-items-end gy-4">
           <Col lg={7}>
             <h2 className="display-4 fw-bold border-bottom border-info pb-3 d-inline-block text-glow">
               Featured Projects
             </h2>
             <p className="text-secondary mt-3 fs-5 mb-0">
+<<<<<<< HEAD
               Digital solutions built to scale businesses and simplify workflows.
+=======
+              Digital solutions built to scale businesses and simplify backend workflows.
+>>>>>>> 4ff6664 (Initial commit)
             </p>
           </Col>
           
           <Col lg={5}>
             <InputGroup>
               <Form.Control
+<<<<<<< HEAD
                 placeholder="Search projects or stack (e.g., React)..."
+=======
+                placeholder="Search projects or stack (e.g., PHP, React)..."
+>>>>>>> 4ff6664 (Initial commit)
                 aria-label="Search portfolio projects"
                 className="premium-search py-2"
                 value={searchQuery}
@@ -193,7 +265,11 @@ const Projects = () => {
             <div className="d-flex flex-wrap gap-2 justify-content-start align-items-center">
               <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>// ALL ARCHITECTURES</button>
               <button className={`filter-btn ${activeFilter === 'fullstack' ? 'active' : ''}`} onClick={() => setActiveFilter('fullstack')}>FULL-STACK</button>
+<<<<<<< HEAD
               <button className={`filter-btn ${activeFilter === 'backend' ? 'active' : ''}`} onClick={() => setActiveFilter('backend')}>BACKEND APIs</button>
+=======
+              <button className={`filter-btn ${activeFilter === 'backend' ? 'active' : ''}`} onClick={() => setActiveFilter('backend')}>BACKEND APIs & ENGINEs</button>
+>>>>>>> 4ff6664 (Initial commit)
               <button className={`filter-btn ${activeFilter === 'data' ? 'active' : ''}`} onClick={() => setActiveFilter('data')}>DATA SYSTEMS</button>
             </div>
           </Col>
@@ -206,7 +282,10 @@ const Projects = () => {
               <Col key={project.id} md={6} lg={4}>
                 <Card className="h-100 bg-secondary bg-opacity-10 border-secondary border-opacity-25 hover-lift shadow-sm overflow-hidden d-flex flex-column">
                   
+<<<<<<< HEAD
                   {/* Dynamic Image Container Layout with Floating Meta Badges */}
+=======
+>>>>>>> 4ff6664 (Initial commit)
                   <div className="card-img-wrapper">
                     <img src={project.image} alt={project.title} loading="lazy" />
                     <div className="card-img-overlay-mesh"></div>
@@ -238,7 +317,10 @@ const Projects = () => {
                       ))}
                     </div>
 
+<<<<<<< HEAD
                     {/* Dynamic Action Buttons */}
+=======
+>>>>>>> 4ff6664 (Initial commit)
                     <div className="mt-auto">
                       <Row className="gx-2 mb-2">
                         {project.liveLink !== "#" && (
@@ -262,7 +344,11 @@ const Projects = () => {
                             variant="outline-secondary" 
                             className="w-100 btn-sm text-white border-secondary"
                           >
+<<<<<<< HEAD
                             GitHub
+=======
+                            GitHub Source
+>>>>>>> 4ff6664 (Initial commit)
                           </Button>
                         </Col>
                       </Row>
@@ -283,7 +369,10 @@ const Projects = () => {
         </Row>
       </Container>
 
+<<<<<<< HEAD
       {/* Let's Connect CTA Strip */}
+=======
+>>>>>>> 4ff6664 (Initial commit)
       <div className="bg-secondary bg-opacity-10 py-5 border-t border-secondary border-opacity-10 mt-5 w-100">
         <Container className="text-center py-2">
           <h4 className="fw-bold text-light mb-2">Need a tailored web architecture solution?</h4>
