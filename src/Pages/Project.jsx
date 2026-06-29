@@ -19,20 +19,20 @@ const Projects = () => {
       scope = "Enterprise Build";
       metrics = "Socket.io Core";
       liveLink = "https://marvelous-store-front.vercel.app";
+    // } else if (project.id === 2) {
+    //   category = "fullstack";
+    //   scope = "Client Portal";
+    //   metrics = "Stripe Secured";
+    // } else if (project.id === 3) {
+    //   category = "data";
+    //   scope = "Microservice";
+    //   metrics = "AWS Serverless";
     } else if (project.id === 2) {
-      category = "fullstack";
-      scope = "Client Portal";
-      metrics = "Stripe Secured";
-    } else if (project.id === 3) {
-      category = "data";
-      scope = "Microservice";
-      metrics = "AWS Serverless";
-    } else if (project.id === 4) {
       category = "backend";
       scope = "Routing Engine";
       metrics = "301 Redirects";
       liveLink = "https://url-shortenener.onrender.com";
-    } else if (project.id === 5) {
+    } else if (project.id === 3) {
       category = "backend";
       scope = "REST Engine";
       metrics = "JWT Auth Verified";

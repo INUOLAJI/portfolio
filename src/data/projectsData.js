@@ -16,30 +16,30 @@ export const projectsData = [
     image: marvelousShot,
     github: "https://github.com/INUOLAJI/frontend-ecommerce.git"
   },
+  // {
+  //   id: 2,
+  //   title: "Client Connect Portal",
+  //   challenge: "A service-based business was losing leads because their booking process required three different phone calls.",
+  //   solution: "I built a secure portal using PostgreSQL and Express where clients can self-schedule, upload documents, and pay invoices in one session.",
+  //   tech: ["Express", "PostgreSQL", "React-Bootstrap", "Stripe API"],
+  //   impact: "Increased successful bookings by 25% within the first month of launch.",
+  //   image: "/images/portal-preview.jpg",
+  //   image: "/images/portal-preview.jpg",
+  //   github: "https://github.com/INUOLAJI/client-portal.git"
+  // },
+  // {
+  //   id: 3,
+  //   title: "Analytics Engine",
+  //   challenge: "Marketing teams had raw data but no way to visualize which audiences were actually converting.",
+  //   solution: "Using Python for data processing and AWS for hosting, I created an engine that transforms CSV logs into interactive heatmaps and conversion funnels.",
+  //   tech: ["Python", "AWS", "Chart.js", "React"],
+  //   impact: "Helped the marketing team reallocate $5,000 in monthly ad spend to high-performing segments.",
+  //   image: "/images/analytics-preview.jpg",
+  //   image: "/images/analytics-preview.jpg",
+  //   github: "https://github.com/INUOLAJI/analytics-engine.git"
+  // },
   {
     id: 2,
-    title: "Client Connect Portal",
-    challenge: "A service-based business was losing leads because their booking process required three different phone calls.",
-    solution: "I built a secure portal using PostgreSQL and Express where clients can self-schedule, upload documents, and pay invoices in one session.",
-    tech: ["Express", "PostgreSQL", "React-Bootstrap", "Stripe API"],
-    impact: "Increased successful bookings by 25% within the first month of launch.",
-    image: "/images/portal-preview.jpg",
-    image: "/images/portal-preview.jpg",
-    github: "https://github.com/INUOLAJI/client-portal.git"
-  },
-  {
-    id: 3,
-    title: "Analytics Engine",
-    challenge: "Marketing teams had raw data but no way to visualize which audiences were actually converting.",
-    solution: "Using Python for data processing and AWS for hosting, I created an engine that transforms CSV logs into interactive heatmaps and conversion funnels.",
-    tech: ["Python", "AWS", "Chart.js", "React"],
-    impact: "Helped the marketing team reallocate $5,000 in monthly ad spend to high-performing segments.",
-    image: "/images/analytics-preview.jpg",
-    image: "/images/analytics-preview.jpg",
-    github: "https://github.com/INUOLAJI/analytics-engine.git"
-  },
-  {
-    id: 4,
     title: "Algorithmic URL Shortener Engine",
     challenge: "Long, chaotic links are prone to breakdown, difficult to manage in workflows, and require server-side mapping mechanisms to safely forward traffic.",
     solution: "I engineered a lightweight backend system using PHP and PostgreSQL that generates secure hash aliases for raw links, processes incoming route strings, and executes quick 301 server redirects.",
@@ -49,7 +49,7 @@ export const projectsData = [
     github: "https://github.com/INUOLAJI/url_shortenener.git"
   },
   {
-    id: 5,
+    id: 3,
     title: "RESTful Blogs API Engine",
     challenge: "Content platforms require highly secure, optimized, and structured relational data streams to handle heavy user traffic without database bottlenecks.",
     solution: "Engineered a robust backend REST API featuring secure user authentication, role-based access control for authors, and optimized relational endpoints for blog posts, comments, and categories.",

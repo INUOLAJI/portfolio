@@ -118,7 +118,7 @@ const About = () => {
           </Col>
           <Col md={4} className="text-md-end">
             <Button 
-              href="/resume.pdf" 
+              href="/Bello_Abdulmuqtadir_Inuolaji_Resume.pdf" 
               download="Bello_Inuolaji_Resume.pdf"
               className="cv-btn px-4 py-2 fw-bold text-glow"
             >
