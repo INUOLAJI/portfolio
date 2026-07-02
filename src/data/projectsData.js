@@ -25,7 +25,7 @@ export const projectsData = [
     tech: ["Express", "PostgreSQL", "React-Bootstrap", "Stripe API"],
     impact: "Increased successful bookings by 25% within the first month of launch.",
     image: clientportal,
-    github: "https://github.com/INUOLAJI/client-portal.git"
+    github: "https://github.com/INUOLAJI/Client-Portal-Frontend.git"
   },
   // {
   //   id: 3,
