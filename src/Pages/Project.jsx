@@ -23,7 +23,7 @@ const Projects = () => {
       category = "fullstack";
       scope = "Client Portal";
       metrics = "Stripe Secured";
-      liveLink = "https://client-portal-frontend-gamma.vercel.app/"
+      liveLink = "https://client-portal-psi-umber.vercel.app/"
     // } else if (project.id === 3) {
     //   category = "data";
     //   scope = "Microservice";

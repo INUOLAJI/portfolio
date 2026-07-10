@@ -118,8 +118,8 @@ const About = () => {
           </Col>
           <Col md={4} className="text-md-end">
             <Button 
-              href="/Bello_Abdulmuqtadir_Inuolaji_cv.pdf" 
-              download="Bello_Abdulmuqtadir_Inuolaji_cv.pdf"
+              href="/Bello_Abdulmuqtadir_Inuolaji_resume.pdf" 
+              download="Bello_Abdulmuqtadir_Inuolaji_resume.pdf"
               className="cv-btn px-4 py-2 fw-bold text-glow"
             >
               DOWNLOAD CV.EXE ↓
