@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, Row, Col, Card, Button, Badge, Nav, Navbar, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
@@ -61,6 +61,8 @@ const Projects = () => {
 
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef(null);
 
   const filteredProjects = projectList.filter(project => {
     const matchesCategory = activeFilter === 'all' || project.category === activeFilter;
@@ -69,6 +71,9 @@ const Projects = () => {
       project.tech.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
+
+  const handleFilter = (f) => { setActiveFilter(f); setActiveIndex(0); };
+  const handleSearch = (e) => { setSearchQuery(e.target.value); setActiveIndex(0); };
 
   return (
     <div className="min-vh-100 bg-dark text-white pt-5 page-bg d-flex flex-column justify-content-between">
@@ -151,6 +156,47 @@ const Projects = () => {
           font-size: 0.75rem;
           letter-spacing: 0.5px;
         }
+        .carousel-track {
+          display: flex;
+          transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .carousel-slide {
+          flex: 0 0 100%;
+          max-width: 100%;
+          padding: 0 8px;
+        }
+        @media (min-width: 768px) {
+          .carousel-slide { flex: 0 0 50%; max-width: 50%; }
+        }
+        @media (min-width: 992px) {
+          .carousel-slide { flex: 0 0 33.333%; max-width: 33.333%; }
+        }
+        .carousel-dot {
+          width: 8px; height: 8px; border-radius: 50%;
+          background: rgba(255,255,255,0.2);
+          border: none; padding: 0; cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .carousel-dot.active {
+          background: #0dcaf0;
+          width: 24px;
+          border-radius: 4px;
+        }
+        .carousel-arrow {
+          width: 42px; height: 42px; border-radius: 50%;
+          background: rgba(13, 202, 240, 0.08);
+          border: 1px solid rgba(13, 202, 240, 0.3);
+          color: #0dcaf0; font-size: 1.1rem;
+          display: flex; align-items: center; justify-content: center;
+          cursor: pointer; transition: all 0.2s ease;
+        }
+        .carousel-arrow:hover {
+          background: rgba(13, 202, 240, 0.18);
+          border-color: #0dcaf0;
+        }
+        .carousel-arrow:disabled {
+          opacity: 0.25; cursor: not-allowed;
+        }
       `}</style>
 
       {/* Navigation Bar */}
@@ -190,7 +236,7 @@ const Projects = () => {
                 aria-label="Search portfolio projects"
                 className="premium-search py-2"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleSearch}
               />
             </InputGroup>
           </Col>
@@ -200,96 +246,124 @@ const Projects = () => {
         <Row className="mb-5">
           <Col>
             <div className="d-flex flex-wrap gap-2 justify-content-start align-items-center">
-              <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>// ALL ARCHITECTURES</button>
-              <button className={`filter-btn ${activeFilter === 'fullstack' ? 'active' : ''}`} onClick={() => setActiveFilter('fullstack')}>FULL-STACK</button>
-              <button className={`filter-btn ${activeFilter === 'backend' ? 'active' : ''}`} onClick={() => setActiveFilter('backend')}>BACKEND APIs & ENGINEs</button>
-              <button className={`filter-btn ${activeFilter === 'data' ? 'active' : ''}`} onClick={() => setActiveFilter('data')}>DATA SYSTEMS</button>
+              <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => handleFilter('all')}>// ALL ARCHITECTURES</button>
+              <button className={`filter-btn ${activeFilter === 'fullstack' ? 'active' : ''}`} onClick={() => handleFilter('fullstack')}>FULL-STACK</button>
+              <button className={`filter-btn ${activeFilter === 'backend' ? 'active' : ''}`} onClick={() => handleFilter('backend')}>BACKEND APIs & ENGINEs</button>
+              <button className={`filter-btn ${activeFilter === 'data' ? 'active' : ''}`} onClick={() => handleFilter('data')}>DATA SYSTEMS</button>
             </div>
           </Col>
         </Row>
 
-        {/* Dynamic Showcase Grid */}
-        <Row className="gy-4">
-          {filteredProjects.length > 0 ? (
-            filteredProjects.map((project) => (
-              <Col key={project.id} md={6} lg={4}>
-                <Card className="h-100 bg-secondary bg-opacity-10 border-secondary border-opacity-25 hover-lift shadow-sm overflow-hidden d-flex flex-column">
+        {/* Carousel Showcase */}
+        {filteredProjects.length > 0 ? (() => {
+          // slides per view based on screen — we compute max index
+          const slidesPerView = typeof window !== 'undefined'
+            ? window.innerWidth >= 992 ? 3 : window.innerWidth >= 768 ? 2 : 1
+            : 3;
+          const maxIndex = Math.max(0, filteredProjects.length - slidesPerView);
+          const clampedIndex = Math.min(activeIndex, maxIndex);
+          const translateX = clampedIndex * (100 / slidesPerView);
 
-                  {/* Dynamic Image Container Layout with Floating Meta Badges */}
-                  <div className="card-img-wrapper">
-                    <img src={project.image} alt={project.title} loading="lazy" />
-                    <div className="card-img-overlay-mesh"></div>
+          return (
+            <>
+              <div style={{ overflow: 'hidden' }}>
+                <div
+                  ref={trackRef}
+                  className="carousel-track"
+                  style={{ transform: `translateX(-${translateX}%)` }}
+                >
+                  {filteredProjects.map((project) => (
+                    <div key={project.id} className="carousel-slide">
+                      <Card className="h-100 bg-secondary bg-opacity-10 border-secondary border-opacity-25 hover-lift shadow-sm overflow-hidden d-flex flex-column">
+                        <div className="card-img-wrapper">
+                          <img src={project.image} alt={project.title} loading="lazy" />
+                          <div className="card-img-overlay-mesh"></div>
+                          <div className="card-meta-content">
+                            <div className="font-monospace text-muted small">
+                              <span className="text-info d-block meta-text fw-bold">{project.scope.toUpperCase()}</span>
+                              <span className="text-white-50 opacity-75 small">&lt;{project.category}/&gt;</span>
+                            </div>
+                            <div className="font-monospace text-secondary small">
+                              <span className="d-block text-glow border border-info border-opacity-30 px-2 py-1 rounded bg-dark bg-opacity-70" style={{ fontSize: '0.75rem', color: '#0dcaf0' }}>
+                                {project.metrics}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
 
-                    <div className="card-meta-content">
-                      <div className="font-monospace text-muted small">
-                        <span className="text-info d-block meta-text fw-bold">{project.scope.toUpperCase()}</span>
-                        <span className="text-white-50 opacity-75 small">&lt;{project.category}/&gt;</span>
-                      </div>
-                      <div className="font-monospace text-secondary small">
-                        <span className="d-block text-glow tracking-normal border border-info border-opacity-30 px-2 py-1 rounded bg-dark bg-opacity-70 extra-small" style={{ fontSize: '0.75rem', color: '#0dcaf0' }}>
-                          {project.metrics}
-                        </span>
-                      </div>
+                        <Card.Body className="d-flex flex-column pt-3">
+                          <h4 className="text-info fw-bold mb-3">{project.title}</h4>
+                          <Card.Text className="text-secondary flex-grow-1 small mb-4" style={{ lineHeight: '1.6' }}>
+                            {project.description}
+                          </Card.Text>
+                          <div className="mb-4">
+                            {project.tech.map((t) => (
+                              <Badge key={t} bg="dark" className="me-2 mb-2 border border-secondary border-opacity-40 fw-normal text-light font-monospace opacity-90 p-2">
+                                {t}
+                              </Badge>
+                            ))}
+                          </div>
+                          <div className="mt-auto">
+                            <Row className="gx-2 mb-2">
+                              {project.liveLink !== '#' && (
+                                <Col>
+                                  <Button href={project.liveLink} target="_blank" rel="noopener noreferrer" variant="info" className="w-100 btn-sm fw-bold text-dark">
+                                    Live Demo
+                                  </Button>
+                                </Col>
+                              )}
+                              <Col>
+                                <Button href={project.github} target="_blank" rel="noopener noreferrer" variant="outline-secondary" className="w-100 btn-sm text-white border-secondary">
+                                  GitHub Source
+                                </Button>
+                              </Col>
+                            </Row>
+                            <Link to={`/projects/${project.id}`} className="btn btn-outline-info w-100 fw-bold btn-sm text-glow font-monospace">
+                              ANALYZE CASE STUDY →
+                            </Link>
+                          </div>
+                        </Card.Body>
+                      </Card>
                     </div>
-                  </div>
+                  ))}
+                </div>
+              </div>
 
-                  <Card.Body className="d-flex flex-column pt-3 position-relative" style={{ zIndex: 2 }}>
-                    <h4 className="text-info fw-bold mb-3">{project.title}</h4>
-                    <Card.Text className="text-secondary flex-grow-1 small mb-4" style={{ lineHeight: '1.6' }}>
-                      {project.description}
-                    </Card.Text>
+              {/* Controls */}
+              <div className="d-flex align-items-center justify-content-center gap-3 mt-4">
+                <button
+                  className="carousel-arrow"
+                  onClick={() => setActiveIndex(i => Math.max(0, i - 1))}
+                  disabled={clampedIndex === 0}
+                >
+                  &#8592;
+                </button>
 
-                    <div className="mb-4">
-                      {project.tech.map((t) => (
-                        <Badge key={t} bg="dark" className="me-2 mb-2 border border-secondary border-opacity-40 fw-normal text-light font-monospace opacity-90 p-2">
-                          {t}
-                        </Badge>
-                      ))}
-                    </div>
+                <div className="d-flex gap-2">
+                  {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                    <button
+                      key={i}
+                      className={`carousel-dot ${clampedIndex === i ? 'active' : ''}`}
+                      onClick={() => setActiveIndex(i)}
+                    />
+                  ))}
+                </div>
 
-                    {/* Dynamic Action Buttons */}
-                    <div className="mt-auto">
-                      <Row className="gx-2 mb-2">
-                        {project.liveLink !== "#" && (
-                          <Col>
-                            <Button
-                              href={project.liveLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              variant="info"
-                              className="w-100 btn-sm fw-bold text-dark"
-                            >
-                              Live Demo
-                            </Button>
-                          </Col>
-                        )}
-                        <Col>
-                          <Button
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            variant="outline-secondary"
-                            className="w-100 btn-sm text-white border-secondary"
-                          >
-                            GitHub Source
-                          </Button>
-                        </Col>
-                      </Row>
-
-                      <Link to={`/projects/${project.id}`} className="btn btn-outline-info w-100 fw-bold btn-sm text-glow font-monospace tracking-wide">
-                        ANALYZE CASE STUDY →
-                      </Link>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
-          ) : (
-            <Col xs={12} className="text-center py-5">
-              <h5 className="text-secondary font-monospace">No active architectures match your filter criteria.</h5>
-            </Col>
-          )}
-        </Row>
+                <button
+                  className="carousel-arrow"
+                  onClick={() => setActiveIndex(i => Math.min(maxIndex, i + 1))}
+                  disabled={clampedIndex === maxIndex}
+                >
+                  &#8594;
+                </button>
+              </div>
+            </>
+          );
+        })() : (
+          <div className="text-center py-5">
+            <h5 className="text-secondary font-monospace">No active architectures match your filter criteria.</h5>
+          </div>
+        )}
       </Container>
 
       {/* Let's Connect CTA Strip */}
