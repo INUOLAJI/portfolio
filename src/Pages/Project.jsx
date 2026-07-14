@@ -38,6 +38,11 @@ const Projects = () => {
       scope = "REST Engine";
       metrics = "JWT Auth Verified";
       liveLink= "https://blogs-api-w90z.onrender.com/api/schema/swagger/"
+    } else if (project.id === 5) {
+      category = "fullstack";
+      scope = "Real-Time Chat";
+      metrics = "WebSocket Live";
+      liveLink = "https://talkbox-git-main-inuolajis-projects.vercel.app";
     }
 
     return {

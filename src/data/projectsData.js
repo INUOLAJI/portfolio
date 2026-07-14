@@ -3,6 +3,7 @@ import marvelousShot from '../assets/marvelous_shot.png';
 import urlsnaplink from '../assets/urlsnaplink.png';
 import blogsapi from '../assets/blogsapi.png';
 import clientportal from '../assets/clientportal.png';
+import talkbox from '../assets/talkbox.png';
 export const projectsData = [
   {
     id: 1,
@@ -57,5 +58,16 @@ export const projectsData = [
     impact: "Built full CRUD operations featuring input validation middleware that eliminates database injection risks and ensures data integrity.",
     image: blogsapi,
     github: "https://github.com/INUOLAJI/Blogs_API.git"
-  }
+  },
+  {
+    id: 5,
+    title: "Talkbox — Real-Time Chat App",
+    challenge: "Users needed a reliable cross-platform messaging experience with real-time delivery, presence indicators, and persistent history across devices and browsers.",
+    solution: "Built a full-stack chat application using Django Channels for WebSocket communication, JWT authentication, Cloudinary for file storage, and a React frontend with dark mode, mobile-responsive layout, and browser push notifications.",
+    tech: ["React", "Django Channels", "PostgreSQL", "Redis", "JWT", "Cloudinary"],
+    impact: "Supports private and group messaging, real-time online presence, unread badges, file sharing, and profile management — deployed live on Render and Vercel.",
+    image: talkbox,
+    github: "https://github.com/INUOLAJU/Talkbox.git",
+    live: "https://talkbox-git-main-inuolajis-projects.vercel.app"
+  },
 ];
